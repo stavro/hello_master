@@ -1,7 +1,7 @@
 defmodule HelloMaster.SlaveNode do
   def start(host) do
-    allow_boot(host)
-    {:ok, slave} = :slave.start(host, :slave, inet_loader_args)
+    allow_boot to_char_list(host)
+    {:ok, slave} = :slave.start(to_char_list(host), :slave, inet_loader_args)
     load_paths(slave)
     {:ok, slave}
   end
